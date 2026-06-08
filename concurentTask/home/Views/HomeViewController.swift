@@ -19,20 +19,20 @@ class HomeViewController: UIViewController {
         
         
 //MARK: - 2 in pararel -> async let
-        Task {
-            try await getData()
-            
-            await MainActor.run {
-                myTableView.reloadData()
-            }
-            
-        }
-        
+//        Task {
+//            try await getData()
+//            
+//            await MainActor.run {
+//                myTableView.reloadData()
+//            }
+//            
+//        }
+//        
         
         
 //MARK: - 2 in parrarel second way -> dispatch Group
         
-      //  getData2()
+        getData2()
         
         
         

@@ -27,6 +27,7 @@ class ProfileViewController: UIViewController {
 //        Task {
 //             try await getuserAndPostsModern()
 //        }
+        
         getuserAndPostsGCD()
        
     }
@@ -41,7 +42,7 @@ class ProfileViewController: UIViewController {
     
         let user: User
         do {
-            user = try await fetchUser()
+            user = try await GenfetchUserModern()
         } catch {
             print(error.localizedDescription)
             return
@@ -53,7 +54,7 @@ class ProfileViewController: UIViewController {
         }
         
             do {
-            let posts = try await fetchPostsOfUser(userId: user.id)
+            let posts = try await GenfetchPostsOfUserModern(userId: user.id)
            
             await MainActor.run {
                 self.posts = posts
@@ -66,17 +67,17 @@ class ProfileViewController: UIViewController {
     }
     //gcd version
     func getuserAndPostsGCD(){
-        fetchUserGCD { [weak self] (user) in
-            switch user {
+        GenfetchUserGCD { [weak self] (res) in
+            switch res {
             case .success(let user):
-                
-                fetchPostsOfUserGCD(userId: user.id) { [weak self] result in
+                //print(user.id)
+                GenfetchPostsOfUserGCD(userId: user.id) { [weak self] result in
                     switch result {
-                    case .success(let result):
-                        
+                    case .success(let posts):
+                      //  print(posts)
                         DispatchQueue.main.async {
                             self?.user = user
-                            self?.posts = result
+                            self?.posts = posts
                             self?.bindUserData()
                             self?.profileTV.reloadData()
                         }
