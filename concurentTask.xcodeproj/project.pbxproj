@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FAC5ABB72FD64BDC00E57A1C /* UIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = FAC5ABB62FD64BDC00E57A1C /* UIComponents */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		FAC5AA472FD645F200E57A1C /* concurentTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = concurentTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC5ABB72FD64BDC00E57A1C /* UIComponents in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 			);
 			name = concurentTask;
 			packageProductDependencies = (
+				FAC5ABB62FD64BDC00E57A1C /* UIComponents */,
 			);
 			productName = concurentTask;
 			productReference = FAC5AA472FD645F200E57A1C /* concurentTask.app */;
@@ -104,9 +110,14 @@
 			knownRegions = (
 				en,
 				Base,
+				"Base 2",
+				"base 2",
 			);
 			mainGroup = FAC5AA3E2FD645F200E57A1C;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				FAC5ABB52FD64BDC00E57A1C /* XCLocalSwiftPackageReference "../../spms/UIComponents" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FAC5AA482FD645F200E57A1C /* Products */;
 			projectDirPath = "";
@@ -341,6 +352,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		FAC5ABB52FD64BDC00E57A1C /* XCLocalSwiftPackageReference "../../spms/UIComponents" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../spms/UIComponents;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FAC5ABB62FD64BDC00E57A1C /* UIComponents */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UIComponents;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FAC5AA3F2FD645F200E57A1C /* Project object */;
 }
