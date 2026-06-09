@@ -19,20 +19,20 @@ class HomeViewController: UIViewController {
         
         
 //MARK: - 2 in pararel -> async let
-//        Task {
-//            try await getData()
-//            
-//            await MainActor.run {
-//                myTableView.reloadData()
-//            }
-//            
-//        }
-//        
+        Task {
+            try await getData()
+            
+            await MainActor.run {
+                myTableView.reloadData()
+            }
+            
+        }
+        
         
         
 //MARK: - 2 in parrarel second way -> dispatch Group
         
-        getData2()
+    //    getData2()
         
         
         
@@ -42,8 +42,8 @@ class HomeViewController: UIViewController {
     
             do {
                 
-                async let posts = fetchPostsModerenWay()
-                async let quotes = fetchQuetesModerenWay()
+                async let posts = GenfetchPostsModernWay()
+                async let quotes = GenfetchQuotesModernWay()
                 
                 let (pos, quot) = try await (posts, quotes)
                 
@@ -60,7 +60,7 @@ class HomeViewController: UIViewController {
         
         
         group.enter()
-        fetchQuetesGCD { [weak self] result in
+        GenfetchQuotesGCD { [weak self] result in
             switch result {
             case .failure(let e):
                 print(e)
@@ -71,7 +71,7 @@ class HomeViewController: UIViewController {
         }
         
         group.enter()
-        fetchPostsGCD { [weak self] result in
+        GenfetchPostsGCD { [weak self] result in
             switch result {
             case .failure(let e):
                 print(e)
