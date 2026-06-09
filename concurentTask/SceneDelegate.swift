@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        let VC = ProfileViewController()
+        let VC = HomeViewController()
         let NC = UINavigationController(rootViewController: VC)
         window.rootViewController = NC
         self.window = window
